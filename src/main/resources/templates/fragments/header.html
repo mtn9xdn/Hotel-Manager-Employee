@@ -1,0 +1,30 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#locales").change(function () {
+                var selectedOption = $('#locales').val();
+                if (selectedOption !== '') {
+                    window.location.replace('locale?lang=' + selectedOption);
+                }
+            });
+        });
+    </script>
+</head>
+<header th:fragment="header"
+        xmlns:th="http://www.w3.org/1999/xhtml">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="/employees/create">Thêm mới</a> </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+</header>

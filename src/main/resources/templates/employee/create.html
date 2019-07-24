@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Employee</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="w3-card-4">
+        <div class="w3-container w3-green">
+            <h1>Thêm Mới Nhân Viên</h1>
+        </div>
+
+
+        <form class="w3-container" action="/employees/create" method="post" th:object="${employees}">
+            <p>
+                <label class="w3-text-green">Mã nhân viên</label>
+                <input class="w3-input w3-border w3-sand" type="text" th:field="*{employeeCode}">
+                <span th:if="${#fields.hasErrors('employeeCode')}" th:errors="*{employeeCode}"></span>
+            </p>
+            <p>
+                <label class="w3-text-green"><b>Họ tên: </b></label>
+                <input class="w3-input w3-border w3-sand" type="text" th:field="*{name}">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </p>
+
+            <p>
+                <label class="w3-text-green">Giới tính: </label>
+                <select th:field="*{gender}">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </p>
+            <p>
+                <label class="w3-text-green">Số điện thoại</label>
+                <input class="w3-input w3-border w3-sand" type="text" th:field="*{phoneNumber}">
+                <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
+            </p>
+            <p>
+                <label class="w3-text-green">Ngày sinh</label>
+                <input class="w3-input w3-border w3-sand" type="date" th:field="*{birthday}">
+                <span th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></span>
+            </p>
+            <p>
+                <label class="w3-text-green">Email</label>
+                <input class="w3-input w3-border w3-sand" type="text" th:field="*{email}">
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </p>
+            <label class="w3-text-green">Chọn nhóm nhân viên: </label>
+            <select th:field="*{employeeGroup}">
+                <option value="Quản trị hệ thống">Quản trị hệ thống</option>
+                <option value="Quản lý nhân sự">Quản lý nhân sự</option>
+                <option value="Lễ tân">Lễ tân</option>
+                <option value="Quản lý phòng">Quản lý phòng</option>
+                <option value="Quản lý dịch vụ">Quản lý dịch vụ</option>
+            </select>
+
+            <p>
+                <label class="w3-text-green">Số CMND</label>
+                <input class="w3-input w3-border w3-sand" type="text" th:field="*{CMND}">
+
+            </p>
+            <p>
+                <label class="w3-text-green">Địa chỉ</label>
+                <input class="w3-input w3-border w3-sand" type="text" th:field="*{address}">
+            </p>
+            <p>
+                <input class="w3-btn w3-green" type="submit" value="Thêm">
+            </p>
+
+
+        </form>
+
+    </div>
+</div>
+
+</table>
+</body>
+</html>

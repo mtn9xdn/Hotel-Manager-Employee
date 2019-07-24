@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>View Employee</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="w3-card-4">
+        <div class="w3-container w3-green">
+            <h1>Thông Tin Nhân Viên</h1>
+
+        </div>
+        <form class="w3-container">
+            <div>
+                <label class="w3-text-green">Họ tên</label>
+                <span class="w3-input w3-border w3-sand" th:text="${employees.name}"></span>
+            </div>
+            <div>
+                <label class="w3-text-green">Mã nhân viên</label>
+                <span class="w3-input w3-border w3-sand" th:text="${employees.employeeCode}"></span>
+            </div>
+
+
+            <div>
+                <label class="w3-text-green">Giới tính </label>
+                <span class="w3-input w3-border w3-sand" th:text="${employees.gender}"></span>
+            </div>
+            <div>
+                <label class="w3-text-green">Số điện thoại</label>
+                <span class="w3-input w3-border w3-sand" th:text="${employees.phoneNumber}"></span>
+            </div>
+            <div>
+                <label class="w3-text-green">Ngày sinh</label>
+                <span class="w3-input w3-border w3-sand" th:text="${employees.birthday}"></span>
+            </div>
+            <div>
+                <label class="w3-text-green">Email </label>
+                <span class="w3-input w3-border w3-sand" th:text="${employees.email}"></span>
+            </div>
+            <div>
+                <label class="w3-text-green">Nhóm nhân viên</label>
+                <span class="w3-input w3-border w3-sand" th:text="${employees.employeeGroup}"></span>
+            </div>
+            <div>
+                <label class="w3-text-green">Số CMND </label>
+                <span class="w3-input w3-border w3-sand" th:text="${employees.CMND}"></span>
+            </div>
+            <div>
+                <label class="w3-text-green">Địa chỉ</label>
+                <span class="w3-input w3-border w3-sand" th:text="${employees.address}"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div>
+        <form>
+                  <input name="name" type="text" placeholder="Employee name" th:value="${name}">
+            <input type="submit" value="Tìm kiếm">
+        </form>
+
+
+        <br class="w3-container">
+        <h2>Manager Hotel</h2><br>
+    </div>
+
+    <p>
+        <th:block th:if="${message}">
+    <p th:text="${message}"></p>
+
+
+    <table border="1" class="table">
+        <tr>
+            <th>Thứ tự</th>
+            <th>Mã nhân viên</th>
+            <th>Nhóm nhân viên</th>
+            <th>Họ tên</th>
+            <th>Giới tính</th>
+            <th>Số điện thoại</th>
+            <th>Thông tin</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+        <th:block th:each="employee, iterStat : ${employees}">
+            <tr>
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${employee.employeeCode}"></td>
+                <td th:text="${employee.employeeGroup}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.gender}"></td>
+                <td th:text="${employee.phoneNumber}"></td>
+                <td><a th:href="@{/employees/view/__${employee.id}__}">Xem</a></td>
+                <td><a th:href="@{/employees/edit/__${employee.id}__}">Sửa</a></td>
+                <td><a th:href="@{/employees/delete/__${employee.id}__}">Xóa</a></td>
+            </tr>
+        </th:block>
+    </table>
+    <div>
+        <a th:href="@{'/employees/list'(page=${employees.number - 1})}" th:if="${employees.hasPrevious()}">Previous</a>
+        <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
+        <a th:href="@{'/employees/list'(page=${employees.number + 1})}" th:if="${employees.hasNext()}">Next</a>
+    </div>
+
+</div>
+</div>
+</body>
+</html>
